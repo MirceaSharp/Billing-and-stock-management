@@ -15,7 +15,9 @@ namespace Petrescu_Mircea_Individuele_opdracht
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             Overview overview = new Overview();
-            if ((string.IsNullOrWhiteSpace(txtUser.Text) & ((string.IsNullOrWhiteSpace(txtUser.Text)))))
+
+
+            if ((string.IsNullOrWhiteSpace(txtUser.Text) || ((string.IsNullOrWhiteSpace(txtPassword.Text)))))
             {
                 MessageBox.Show("You must fill in both username and password fields");
 
@@ -27,6 +29,8 @@ namespace Petrescu_Mircea_Individuele_opdracht
                 {
 
                     overview.Show();
+                    overview.btnKlanten.Visibility = Visibility.Hidden;
+                    overview
 
 
 
@@ -37,12 +41,14 @@ namespace Petrescu_Mircea_Individuele_opdracht
                 {
 
                     overview.btnDatabeheer.Visibility = Visibility.Hidden;
+                    overview.icondatabase.Visibility = Visibility.Hidden;
                     overview.Show();
                     Close();
                 }
                 else if ((txtUser.Text == "verkoper") & (txtPassword.Text == "SalesAccount123"))
                 {
                     overview.btnDatabeheer.Visibility = Visibility.Hidden;
+                    overview.icondatabase.Visibility = Visibility.Hidden;
 
                     overview.Show();
                     Close();
@@ -55,7 +61,23 @@ namespace Petrescu_Mircea_Individuele_opdracht
                 }
 
 
+
             }
+        }
+
+        private void Top_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void btnMinmize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

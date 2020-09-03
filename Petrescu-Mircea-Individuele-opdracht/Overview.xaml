@@ -8,14 +8,54 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Petrescu_Mircea_Individuele_opdracht.Overview"
       
         mc:Ignorable="d"
-        Title="Overview" Height="450" Width="800" ResizeMode="NoResize" WindowStyle="None">
+        Title="Overview" Height="450" Width="800" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
         <Color x:Key="Color1">Black</Color>
     </Window.Resources>
-    <Grid>
-        <Grid HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="94" Background="#FF186885"/>
+
+    <Grid Grid.Row="1">
+        <Grid Name="TitleBar" MouseDown="TitleBar_MouseDown" HorizontalAlignment="Left" Height="21" Margin="94,0,0,0" VerticalAlignment="Top" Width="706" Background="#FF267A7A">
+            <Button Content="" Name="btnClose" Click="btnClose_Click_1" HorizontalAlignment="Left" Height="19" Margin="666,2,0,0" VerticalAlignment="Top" Width="40" Background="White"/>
+            <materialDesign:PackIcon Kind="Power" Margin="680,2,0,0" RenderTransformOrigin="11.562,0.854" Width="12"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="94" Background="#FFB3AEBB"  >
+            <Button Name="btnOverzicht" HorizontalAlignment="Left" Height="26" Margin="0,34,0,0" VerticalAlignment="Top" Width="94" Content="Ovezicht" FontSize="11" Click="btnOverzicht_Click"/>
+            <Button Name="btnBestelling" Content="Bestelling" HorizontalAlignment="Left" Height="24" Margin="0,110,0,0" VerticalAlignment="Top" Width="94" FontSize="10">
+
+            </Button>
+            <Button x:Name="btnKlanten" Content="Klanten" HorizontalAlignment="Left" Height="24" Margin="0,152,0,0" VerticalAlignment="Top" Width="94" FontSize="10"/>
+            <Button x:Name="btnKlanten_Copy" Content="Producten" HorizontalAlignment="Left" Height="24" Margin="0,193,0,0" VerticalAlignment="Top" Width="94" FontSize="10"/>
+        </Grid>
+        <Grid Margin="0,37,706,392" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250">
+
+                </RowDefinition>
+            </Grid.RowDefinitions>
+            <materialDesign:PackIcon Kind="Home" RenderTransformOrigin="-0.292,0.479" />
+
+        </Grid>
+        <Button Name="btnDatabeheer" HorizontalAlignment="Left" Height="24" Margin="0,71,0,0" VerticalAlignment="Top" Width="94" Content="   Databeheer" FontSize="10" Click="btnDatabeheer_Click"  />
+        <Grid HorizontalAlignment="Right" Height="24" Margin="0,71,706,0" VerticalAlignment="Top" Width="94">
+            <materialDesign:PackIcon Kind="Database" Margin="0,4,0,0" Name="icondatabase"/>
+        </Grid>
+        <Button x:Name="btnMinimize" Click="btnMinimize_Click" HorizontalAlignment="Left" Height="22" Margin="714,-1,0,0" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-0.179,1.591">
+            <Button.Background>
+                <SolidColorBrush Color="White"/>
+            </Button.Background>
+            <materialDesign:PackIcon  Kind="WindowMinimize"  BorderBrush="Black" Background="{x:Null}" RenderTransformOrigin="0.188,0.797"/>
+        </Button>
+        <Grid HorizontalAlignment="Left" Height="22" Margin="438,30,0,0" VerticalAlignment="Top" Width="42"/>
+        <Grid HorizontalAlignment="Left" Height="20" Margin="4,114,0,0" VerticalAlignment="Top" Width="74">
+            <materialDesign:PackIcon Kind="Check" Name="iconbestelling"/>
+        </Grid>
+        <materialDesign:PackIcon Kind="Briefcase" Height="18" Width="27" Margin="1,157,0,0"/>
+        <materialDesign:PackIcon Kind="" Height="18" Width="27" Margin="0,195,0,0"/>
+
+
 
 
 
     </Grid>
+
 </Window>

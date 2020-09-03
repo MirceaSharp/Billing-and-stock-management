@@ -4,14 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Petrescu_Mircea_Individuele_opdracht"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="800">
-    <Grid>
-        <Label Content="User:" HorizontalAlignment="Left" Height="30" Margin="47,37,0,0" VerticalAlignment="Top" Width="108"/>
-        <TextBox Name="txtUser" HorizontalAlignment="Left" Height="30" Margin="147,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226"/>
-        <TextBox Name="txtPassword" HorizontalAlignment="Left" Height="30" Margin="147,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Height="30" Margin="47,95,0,0" VerticalAlignment="Top" Width="108"/>
-        <Button Name="btnLogin" Content="Login" HorizontalAlignment="Left" Height="26"  Foreground="#FFE5572C" Margin="147,146,0,0" VerticalAlignment="Top" Width="141" Click="btnLogin_Click"/>
+        Title="Login" Height="450" Width="310" WindowStyle="None" >
+
+
+
+    <Grid Name="Top" MouseDown="Top_MouseDown" HorizontalAlignment="Left" Height="229" VerticalAlignment="Top" Width="300" Background="#FF1A7C6A">
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="200" Margin="36,105,0,-76" Stroke="Black" VerticalAlignment="Top" Width="230">
+
+        </Rectangle>
+        <Grid HorizontalAlignment="Left" Height="200" Margin="36,105,0,-76" VerticalAlignment="Top" Width="230"/>
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="110,130,0,0" TextWrapping="Wrap" Text="        Login" VerticalAlignment="Top" Width="89"/>
+        <StackPanel HorizontalAlignment="Left" Height="117" Margin="74,188,0,-76" VerticalAlignment="Top" Width="160">
+            <TextBox x:Name="txtUser" materialDesign:HintAssist.Hint="Username" Margin="0,10"  />
+            <TextBox x:Name="txtPassword" materialDesign:HintAssist.Hint="Password"  Margin="0,10" />
+        </StackPanel>
+        <materialDesign:PackIcon Kind="User" Height="57" Width="70" Margin="119,36,0,0"/>
+        <Button Name="btnLogin" Click="btnLogin_Click" Content="Login" HorizontalAlignment="Left" Margin="96,292,0,-95" VerticalAlignment="Top" Width="117"/>
+        <Button Content="Button" Name="btnMinmize" Click="btnMinmize_Click" HorizontalAlignment="Left" Height="11" Margin="252,0,0,0" VerticalAlignment="Top" Width="25" Background="White"/>
+        <materialDesign:PackIcon Kind="WindowMinimize" Margin="256,-3,0,0"/>
+        <Button Content="Button" Name="btnClose" Click="btnClose_Click" HorizontalAlignment="Left" Height="11" Margin="277,0,0,0" VerticalAlignment="Top" Width="23" Background="White" Grid.ColumnSpan="2"/>
+        <materialDesign:PackIcon Kind="Power" Margin="280,-1,0,0" Height="12" Grid.ColumnSpan="2"/>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="0*"/>
+
+        </Grid.ColumnDefinitions>
+
+
 
     </Grid>
 </Window>

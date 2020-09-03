@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ImputDataModelStoreContainer" CdmEntityContainer="ImputDataEntities1">
+    <EntitySetMapping Name="Bestellings">
+      <EntityTypeMapping TypeName="ImputDataModel.Bestelling">
+        <MappingFragment StoreEntitySet="Bestelling">
+          <ScalarProperty Name="BestellingID" ColumnName="BestellingID" />
+          <ScalarProperty Name="DatumOpgemaakt" ColumnName="DatumOpgemaakt" />
+          <ScalarProperty Name="PersoneelslidID" ColumnName="PersoneelslidID" />
+          <ScalarProperty Name="LeverancierID" ColumnName="LeverancierID" />
+          <ScalarProperty Name="KlantID" ColumnName="KlantID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BestellingProducts">
+      <EntityTypeMapping TypeName="ImputDataModel.BestellingProduct">
+        <MappingFragment StoreEntitySet="BestellingProduct">
+          <ScalarProperty Name="BestellingProductID" ColumnName="BestellingProductID" />
+          <ScalarProperty Name="BestellingID" ColumnName="BestellingID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="ImputDataModel.Categorie">
+        <MappingFragment StoreEntitySet="Categorie">
+          <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+          <ScalarProperty Name="CategorieNaam" ColumnName="CategorieNaam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Klants">
+      <EntityTypeMapping TypeName="ImputDataModel.Klant">
+        <MappingFragment StoreEntitySet="Klant">
+          <ScalarProperty Name="KlantID" ColumnName="KlantID" />
+          <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+          <ScalarProperty Name="Achternaam" ColumnName="Achternaam" />
+          <ScalarProperty Name="Straatnaam" ColumnName="Straatnaam" />
+          <ScalarProperty Name="Huisnummer" ColumnName="Huisnummer" />
+          <ScalarProperty Name="Bus" ColumnName="Bus" />
+          <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+          <ScalarProperty Name="Gemeente" ColumnName="Gemeente" />
+          <ScalarProperty Name="Teleffonnummer" ColumnName="Teleffonnummer" />
+          <ScalarProperty Name="Emailadres" ColumnName="Emailadres" />
+          <ScalarProperty Name="AangemaaktOp" ColumnName="AangemaaktOp" />
+          <ScalarProperty Name="Opmerking" ColumnName="Opmerking" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leveranciers">
+      <EntityTypeMapping TypeName="ImputDataModel.Leverancier">
+        <MappingFragment StoreEntitySet="Leverancier">
+          <ScalarProperty Name="LeverancierID" ColumnName="LeverancierID" />
+          <ScalarProperty Name="Contactpersoon" ColumnName="Contactpersoon" />
+          <ScalarProperty Name="Telefoonnummer" ColumnName="Telefoonnummer" />
+          <ScalarProperty Name="Emailadres" ColumnName="Emailadres" />
+          <ScalarProperty Name="Straatnaam" ColumnName="Straatnaam" />
+          <ScalarProperty Name="Huisnummer" ColumnName="Huisnummer" />
+          <ScalarProperty Name="Bus" ColumnName="Bus" />
+          <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+          <ScalarProperty Name="Gemeente" ColumnName="Gemeente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personeelslids">
+      <EntityTypeMapping TypeName="ImputDataModel.Personeelslid">
+        <MappingFragment StoreEntitySet="Personeelslid">
+          <ScalarProperty Name="PersoneelslidID" ColumnName="PersoneelslidID" />
+          <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="ImputDataModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Naam" ColumnName="Naam" />
+          <ScalarProperty Name="Inkoopprijs" ColumnName="Inkoopprijs" />
+          <ScalarProperty Name="Marge" ColumnName="Marge" />
+          <ScalarProperty Name="Eenheid" ColumnName="Eenheid" />
+          <ScalarProperty Name="BTW" ColumnName="BTW" />
+          <ScalarProperty Name="LeverancierID" ColumnName="LeverancierID" />
+          <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

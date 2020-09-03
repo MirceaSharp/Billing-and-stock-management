@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="491d8bf74cab40b9ba029ff87e8d7ed8" Name="Diagram1">
+        <EntityTypeShape EntityType="ImputDataModel.Bestelling" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImputDataModel.BestellingProduct" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImputDataModel.Categorie" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImputDataModel.Klant" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImputDataModel.Leverancier" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImputDataModel.Personeelslid" Width="1.5" PointX="2.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ImputDataModel.Product" Width="1.625" PointX="6" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="ImputDataModel.FK_Bestelling_KlantID" ManuallyRouted="false" />
+        <AssociationConnector Association="ImputDataModel.FK_Bestelling_LeverancierID" ManuallyRouted="false" />
+        <AssociationConnector Association="ImputDataModel.FK_BestellingProduct_BestellingID" ManuallyRouted="false" />
+        <AssociationConnector Association="ImputDataModel.FK_BestellingProduct_ProductID" ManuallyRouted="false" />
+        <AssociationConnector Association="ImputDataModel.FK_Product_CategorieID" ManuallyRouted="false" />
+        <AssociationConnector Association="ImputDataModel.FK_Product_LeverancierID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

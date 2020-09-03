@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ImputDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bestelling">
+          <Key>
+            <PropertyRef Name="BestellingID" />
+          </Key>
+          <Property Name="BestellingID" Type="int" Nullable="false" />
+          <Property Name="DatumOpgemaakt" Type="date" />
+          <Property Name="PersoneelslidID" Type="nvarchar" MaxLength="50" />
+          <Property Name="LeverancierID" Type="int" />
+          <Property Name="KlantID" Type="int" />
+        </EntityType>
+        <EntityType Name="BestellingProduct">
+          <Key>
+            <PropertyRef Name="BestellingProductID" />
+          </Key>
+          <Property Name="BestellingProductID" Type="int" Nullable="false" />
+          <Property Name="BestellingID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+        </EntityType>
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="CategorieID" />
+          </Key>
+          <Property Name="CategorieID" Type="int" Nullable="false" />
+          <Property Name="CategorieNaam" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Klant">
+          <Key>
+            <PropertyRef Name="KlantID" />
+          </Key>
+          <Property Name="KlantID" Type="int" Nullable="false" />
+          <Property Name="Voornaam" Type="nchar" MaxLength="50" />
+          <Property Name="Achternaam" Type="nchar" MaxLength="50" />
+          <Property Name="Straatnaam" Type="nvarchar" MaxLength="50" />
+          <Property Name="Huisnummer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bus" Type="int" />
+          <Property Name="Postcode" Type="int" />
+          <Property Name="Gemeente" Type="nvarchar" MaxLength="50" />
+          <Property Name="Teleffonnummer" Type="int" />
+          <Property Name="Emailadres" Type="nchar" MaxLength="50" />
+          <Property Name="AangemaaktOp" Type="date" />
+          <Property Name="Opmerking" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Leverancier">
+          <Key>
+            <PropertyRef Name="LeverancierID" />
+          </Key>
+          <Property Name="LeverancierID" Type="int" Nullable="false" />
+          <Property Name="Contactpersoon" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefoonnummer" Type="int" />
+          <Property Name="Emailadres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Straatnaam" Type="nvarchar" MaxLength="50" />
+          <Property Name="Huisnummer" Type="int" />
+          <Property Name="Bus" Type="int" />
+          <Property Name="Postcode" Type="int" />
+          <Property Name="Gemeente" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Personeelslid">
+          <Key>
+            <PropertyRef Name="PersoneelslidID" />
+          </Key>
+          <Property Name="PersoneelslidID" Type="int" Nullable="false" />
+          <Property Name="Voornaam" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="Naam" Type="nchar" MaxLength="50" />
+          <Property Name="Inkoopprijs" Type="int" />
+          <Property Name="Marge" Type="int" />
+          <Property Name="Eenheid" Type="int" />
+          <Property Name="BTW" Type="int" />
+          <Property Name="LeverancierID" Type="int" />
+          <Property Name="CategorieID" Type="int" />
+        </EntityType>
+        <Association Name="FK_Bestelling_KlantID">
+          <End Role="Klant" Type="Self.Klant" Multiplicity="0..1" />
+          <End Role="Bestelling" Type="Self.Bestelling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klant">
+              <PropertyRef Name="KlantID" />
+            </Principal>
+            <Dependent Role="Bestelling">
+              <PropertyRef Name="KlantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bestelling_LeverancierID">
+          <End Role="Leverancier" Type="Self.Leverancier" Multiplicity="0..1" />
+          <End Role="Bestelling" Type="Self.Bestelling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leverancier">
+              <PropertyRef Name="LeverancierID" />
+            </Principal>
+            <Dependent Role="Bestelling">
+              <PropertyRef Name="LeverancierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BestellingProduct_BestellingID">
+          <End Role="Bestelling" Type="Self.Bestelling" Multiplicity="0..1" />
+          <End Role="BestellingProduct" Type="Self.BestellingProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bestelling">
+              <PropertyRef Name="BestellingID" />
+            </Principal>
+            <Dependent Role="BestellingProduct">
+              <PropertyRef Name="BestellingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BestellingProduct_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="BestellingProduct" Type="Self.BestellingProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="BestellingProduct">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_CategorieID">
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="CategorieID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategorieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_LeverancierID">
+          <End Role="Leverancier" Type="Self.Leverancier" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leverancier">
+              <PropertyRef Name="LeverancierID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="LeverancierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ImputDataModelStoreContainer">
+          <EntitySet Name="Bestelling" EntityType="Self.Bestelling" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BestellingProduct" EntityType="Self.BestellingProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Klant" EntityType="Self.Klant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Leverancier" EntityType="Self.Leverancier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personeelslid" EntityType="Self.Personeelslid" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bestelling_KlantID" Association="Self.FK_Bestelling_KlantID">
+            <End Role="Klant" EntitySet="Klant" />
+            <End Role="Bestelling" EntitySet="Bestelling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bestelling_LeverancierID" Association="Self.FK_Bestelling_LeverancierID">
+            <End Role="Leverancier" EntitySet="Leverancier" />
+            <End Role="Bestelling" EntitySet="Bestelling" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BestellingProduct_BestellingID" Association="Self.FK_BestellingProduct_BestellingID">
+            <End Role="Bestelling" EntitySet="Bestelling" />
+            <End Role="BestellingProduct" EntitySet="BestellingProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BestellingProduct_ProductID" Association="Self.FK_BestellingProduct_ProductID">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="BestellingProduct" EntitySet="BestellingProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_CategorieID" Association="Self.FK_Product_CategorieID">
+            <End Role="Categorie" EntitySet="Categorie" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_LeverancierID" Association="Self.FK_Product_LeverancierID">
+            <End Role="Leverancier" EntitySet="Leverancier" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ImputDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bestelling">
+          <Key>
+            <PropertyRef Name="BestellingID" />
+          </Key>
+          <Property Name="BestellingID" Type="Int32" Nullable="false" />
+          <Property Name="DatumOpgemaakt" Type="DateTime" Precision="0" />
+          <Property Name="PersoneelslidID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LeverancierID" Type="Int32" />
+          <Property Name="KlantID" Type="Int32" />
+          <NavigationProperty Name="Klant" Relationship="Self.FK_Bestelling_KlantID" FromRole="Bestelling" ToRole="Klant" />
+          <NavigationProperty Name="Leverancier" Relationship="Self.FK_Bestelling_LeverancierID" FromRole="Bestelling" ToRole="Leverancier" />
+          <NavigationProperty Name="BestellingProducts" Relationship="Self.FK_BestellingProduct_BestellingID" FromRole="Bestelling" ToRole="BestellingProduct" />
+        </EntityType>
+        <EntityType Name="BestellingProduct">
+          <Key>
+            <PropertyRef Name="BestellingProductID" />
+          </Key>
+          <Property Name="BestellingProductID" Type="Int32" Nullable="false" />
+          <Property Name="BestellingID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <NavigationProperty Name="Bestelling" Relationship="Self.FK_BestellingProduct_BestellingID" FromRole="BestellingProduct" ToRole="Bestelling" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_BestellingProduct_ProductID" FromRole="BestellingProduct" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="CategorieID" />
+          </Key>
+          <Property Name="CategorieID" Type="Int32" Nullable="false" />
+          <Property Name="CategorieNaam" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_CategorieID" FromRole="Categorie" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Klant">
+          <Key>
+            <PropertyRef Name="KlantID" />
+          </Key>
+          <Property Name="KlantID" Type="Int32" Nullable="false" />
+          <Property Name="Voornaam" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Achternaam" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Straatnaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Huisnummer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Bus" Type="Int32" />
+          <Property Name="Postcode" Type="Int32" />
+          <Property Name="Gemeente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Teleffonnummer" Type="Int32" />
+          <Property Name="Emailadres" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="AangemaaktOp" Type="DateTime" Precision="0" />
+          <Property Name="Opmerking" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Bestellings" Relationship="Self.FK_Bestelling_KlantID" FromRole="Klant" ToRole="Bestelling" />
+        </EntityType>
+        <EntityType Name="Leverancier">
+          <Key>
+            <PropertyRef Name="LeverancierID" />
+          </Key>
+          <Property Name="LeverancierID" Type="Int32" Nullable="false" />
+          <Property Name="Contactpersoon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefoonnummer" Type="Int32" />
+          <Property Name="Emailadres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Straatnaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Huisnummer" Type="Int32" />
+          <Property Name="Bus" Type="Int32" />
+          <Property Name="Postcode" Type="Int32" />
+          <Property Name="Gemeente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bestellings" Relationship="Self.FK_Bestelling_LeverancierID" FromRole="Leverancier" ToRole="Bestelling" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_LeverancierID" FromRole="Leverancier" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Personeelslid">
+          <Key>
+            <PropertyRef Name="PersoneelslidID" />
+          </Key>
+          <Property Name="PersoneelslidID" Type="Int32" Nullable="false" />
+          <Property Name="Voornaam" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Inkoopprijs" Type="Int32" />
+          <Property Name="Marge" Type="Int32" />
+          <Property Name="Eenheid" Type="Int32" />
+          <Property Name="BTW" Type="Int32" />
+          <Property Name="LeverancierID" Type="Int32" />
+          <Property Name="CategorieID" Type="Int32" />
+          <NavigationProperty Name="BestellingProducts" Relationship="Self.FK_BestellingProduct_ProductID" FromRole="Product" ToRole="BestellingProduct" />
+          <NavigationProperty Name="Categorie" Relationship="Self.FK_Product_CategorieID" FromRole="Product" ToRole="Categorie" />
+          <NavigationProperty Name="Leverancier" Relationship="Self.FK_Product_LeverancierID" FromRole="Product" ToRole="Leverancier" />
+        </EntityType>
+        <Association Name="FK_Bestelling_KlantID">
+          <End Role="Klant" Type="Self.Klant" Multiplicity="0..1" />
+          <End Role="Bestelling" Type="Self.Bestelling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Klant">
+              <PropertyRef Name="KlantID" />
+            </Principal>
+            <Dependent Role="Bestelling">
+              <PropertyRef Name="KlantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bestelling_LeverancierID">
+          <End Role="Leverancier" Type="Self.Leverancier" Multiplicity="0..1" />
+          <End Role="Bestelling" Type="Self.Bestelling" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leverancier">
+              <PropertyRef Name="LeverancierID" />
+            </Principal>
+            <Dependent Role="Bestelling">
+              <PropertyRef Name="LeverancierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BestellingProduct_BestellingID">
+          <End Role="Bestelling" Type="Self.Bestelling" Multiplicity="0..1" />
+          <End Role="BestellingProduct" Type="Self.BestellingProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bestelling">
+              <PropertyRef Name="BestellingID" />
+            </Principal>
+            <Dependent Role="BestellingProduct">
+              <PropertyRef Name="BestellingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BestellingProduct_ProductID">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="BestellingProduct" Type="Self.BestellingProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="BestellingProduct">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_CategorieID">
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="CategorieID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategorieID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_LeverancierID">
+          <End Role="Leverancier" Type="Self.Leverancier" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leverancier">
+              <PropertyRef Name="LeverancierID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="LeverancierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ImputDataEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bestellings" EntityType="Self.Bestelling" />
+          <EntitySet Name="BestellingProducts" EntityType="Self.BestellingProduct" />
+          <EntitySet Name="Categories" EntityType="Self.Categorie" />
+          <EntitySet Name="Klants" EntityType="Self.Klant" />
+          <EntitySet Name="Leveranciers" EntityType="Self.Leverancier" />
+          <EntitySet Name="Personeelslids" EntityType="Self.Personeelslid" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <AssociationSet Name="FK_Bestelling_KlantID" Association="Self.FK_Bestelling_KlantID">
+            <End Role="Klant" EntitySet="Klants" />
+            <End Role="Bestelling" EntitySet="Bestellings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bestelling_LeverancierID" Association="Self.FK_Bestelling_LeverancierID">
+            <End Role="Leverancier" EntitySet="Leveranciers" />
+            <End Role="Bestelling" EntitySet="Bestellings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BestellingProduct_BestellingID" Association="Self.FK_BestellingProduct_BestellingID">
+            <End Role="Bestelling" EntitySet="Bestellings" />
+            <End Role="BestellingProduct" EntitySet="BestellingProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BestellingProduct_ProductID" Association="Self.FK_BestellingProduct_ProductID">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="BestellingProduct" EntitySet="BestellingProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_CategorieID" Association="Self.FK_Product_CategorieID">
+            <End Role="Categorie" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_LeverancierID" Association="Self.FK_Product_LeverancierID">
+            <End Role="Leverancier" EntitySet="Leveranciers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ImputDataModelStoreContainer" CdmEntityContainer="ImputDataEntities1">
+          <EntitySetMapping Name="Bestellings">
+            <EntityTypeMapping TypeName="ImputDataModel.Bestelling">
+              <MappingFragment StoreEntitySet="Bestelling">
+                <ScalarProperty Name="BestellingID" ColumnName="BestellingID" />
+                <ScalarProperty Name="DatumOpgemaakt" ColumnName="DatumOpgemaakt" />
+                <ScalarProperty Name="PersoneelslidID" ColumnName="PersoneelslidID" />
+                <ScalarProperty Name="LeverancierID" ColumnName="LeverancierID" />
+                <ScalarProperty Name="KlantID" ColumnName="KlantID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BestellingProducts">
+            <EntityTypeMapping TypeName="ImputDataModel.BestellingProduct">
+              <MappingFragment StoreEntitySet="BestellingProduct">
+                <ScalarProperty Name="BestellingProductID" ColumnName="BestellingProductID" />
+                <ScalarProperty Name="BestellingID" ColumnName="BestellingID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="ImputDataModel.Categorie">
+              <MappingFragment StoreEntitySet="Categorie">
+                <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+                <ScalarProperty Name="CategorieNaam" ColumnName="CategorieNaam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Klants">
+            <EntityTypeMapping TypeName="ImputDataModel.Klant">
+              <MappingFragment StoreEntitySet="Klant">
+                <ScalarProperty Name="KlantID" ColumnName="KlantID" />
+                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+                <ScalarProperty Name="Achternaam" ColumnName="Achternaam" />
+                <ScalarProperty Name="Straatnaam" ColumnName="Straatnaam" />
+                <ScalarProperty Name="Huisnummer" ColumnName="Huisnummer" />
+                <ScalarProperty Name="Bus" ColumnName="Bus" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Gemeente" ColumnName="Gemeente" />
+                <ScalarProperty Name="Teleffonnummer" ColumnName="Teleffonnummer" />
+                <ScalarProperty Name="Emailadres" ColumnName="Emailadres" />
+                <ScalarProperty Name="AangemaaktOp" ColumnName="AangemaaktOp" />
+                <ScalarProperty Name="Opmerking" ColumnName="Opmerking" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leveranciers">
+            <EntityTypeMapping TypeName="ImputDataModel.Leverancier">
+              <MappingFragment StoreEntitySet="Leverancier">
+                <ScalarProperty Name="LeverancierID" ColumnName="LeverancierID" />
+                <ScalarProperty Name="Contactpersoon" ColumnName="Contactpersoon" />
+                <ScalarProperty Name="Telefoonnummer" ColumnName="Telefoonnummer" />
+                <ScalarProperty Name="Emailadres" ColumnName="Emailadres" />
+                <ScalarProperty Name="Straatnaam" ColumnName="Straatnaam" />
+                <ScalarProperty Name="Huisnummer" ColumnName="Huisnummer" />
+                <ScalarProperty Name="Bus" ColumnName="Bus" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Gemeente" ColumnName="Gemeente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personeelslids">
+            <EntityTypeMapping TypeName="ImputDataModel.Personeelslid">
+              <MappingFragment StoreEntitySet="Personeelslid">
+                <ScalarProperty Name="PersoneelslidID" ColumnName="PersoneelslidID" />
+                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="ImputDataModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Inkoopprijs" ColumnName="Inkoopprijs" />
+                <ScalarProperty Name="Marge" ColumnName="Marge" />
+                <ScalarProperty Name="Eenheid" ColumnName="Eenheid" />
+                <ScalarProperty Name="BTW" ColumnName="BTW" />
+                <ScalarProperty Name="LeverancierID" ColumnName="LeverancierID" />
+                <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
