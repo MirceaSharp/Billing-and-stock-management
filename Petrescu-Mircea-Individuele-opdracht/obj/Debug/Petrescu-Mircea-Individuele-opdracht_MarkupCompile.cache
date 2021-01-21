@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\MVP\source\repos\Petrescu-Mircea-Individuele-opdracht\Petrescu-Mircea-Individuele-opdracht\obj\Debug\
+C:\Users\mirce\source\repos\Petrescu-Mircea-Individuele-opdracht\Petrescu-Mircea-Individuele-opdracht\obj\Debug\
 Petrescu_Mircea_Individuele_opdracht
 none
 false
 DEBUG;TRACE
-C:\Users\MVP\source\repos\Petrescu-Mircea-Individuele-opdracht\Petrescu-Mircea-Individuele-opdracht\App.xaml
-3447134948
-21750853300
-17-604886939
-23-118837523
-Databeheer.xaml;Login.xaml;Overview.xaml;
+C:\Users\mirce\source\repos\Petrescu-Mircea-Individuele-opdracht\Petrescu-Mircea-Individuele-opdracht\App.xaml
+121856914012
+2-1878644302
+271949929417
+1651086166324
+Bestellingen.xaml;Categorieën.xaml;Databeheer.xaml;Klanten.xaml;Leveranciers.xaml;Login.xaml;MaakBestelling.xaml;MaakKlant.xaml;MaakProduct.xaml;Overview.xaml;Personeelslidvenster.xaml;Producten.xaml;
 
 False
 

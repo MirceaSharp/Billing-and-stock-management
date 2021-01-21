@@ -1,0 +1,48 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Petrescu_Mircea_Individuele_opdracht"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Petrescu_Mircea_Individuele_opdracht.MaakKlant"
+        mc:Ignorable="d"
+        Title="MaakKlant" Height="741.25" Width="800" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Margin="0,0,0,26">
+        <Grid HorizontalAlignment="Left" Height="716" VerticalAlignment="Top" Width="94" Background="#FFB3AEBB"  >
+            <Button Content="Toevoegen&#xA;" x:Name="btnToevoegen" Click="btnToevoegen_Click" HorizontalAlignment="Left" Height="28" Margin="0,87,0,0" VerticalAlignment="Top" Width="94" FontSize="11" />
+        </Grid>
+
+        <Grid x:Name="TitleBar" MouseDown="TitleBar_MouseDown" HorizontalAlignment="Left" Height="21" Margin="94,0,0,0" VerticalAlignment="Top" Width="706" Background="#FF267A7A">
+            <Button Content="" x:Name="btnClose" Click="btnClose_Click" HorizontalAlignment="Left" Height="21" Margin="666,0,0,0" VerticalAlignment="Top" Width="40" Background="White"/>
+            <materialDesign:PackIcon Kind="Power" Margin="680,2,0,0" RenderTransformOrigin="11.562,0.854" Width="12"/>
+            <Button x:Name="btnMinimize" Click="btnMinimize_Click" HorizontalAlignment="Left" Height="21" Margin="620,0,0,0" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-0.179,1.591" Background="White">
+                <materialDesign:PackIcon  Kind="WindowMinimize"  BorderBrush="Black" Background="{x:Null}" RenderTransformOrigin="0.188,0.797"/>
+            </Button>
+        </Grid>
+        <TextBox x:Name="txtKlantID" HorizontalAlignment="Left" Height="35" Margin="326,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <Label x:Name="lblKlantID" Content="Klant ID" HorizontalAlignment="Left" Height="36" Margin="163,79,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <Label x:Name="lblDatum" Content="Angemaakt op" HorizontalAlignment="Left" Height="36" Margin="163,517,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <DatePicker x:Name="DatePicker"  Background="#FFBEE8BF" DisplayDate="2019-12-20" HorizontalAlignment="Left" Height="36" Margin="326,517,0,0" VerticalAlignment="Top" Width="155"/>
+        <Label x:Name="lblVoornaam" Content="Voornaam" HorizontalAlignment="Left" Height="36" Margin="163,124,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <Label x:Name="lblAchternaam" Content="Achternaam" HorizontalAlignment="Left" Height="36" Margin="163,170,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <Label x:Name="lblStraatnaam" Content="Straatnaam" HorizontalAlignment="Left" Height="36" Margin="163,214,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <Label x:Name="lblHuisnummer" Content="Huisnummer" HorizontalAlignment="Left" Height="36" Margin="163,257,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <Label x:Name="lblPostcode" Content="Postcode" HorizontalAlignment="Left" Height="36" Margin="163,341,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <Label x:Name="lblBus" Content="Bus" HorizontalAlignment="Left" Height="36" Margin="163,298,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtHuisnummer" HorizontalAlignment="Left" Height="35" Margin="326,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtVoornaam" HorizontalAlignment="Left" Height="35" Margin="326,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtAchternaam" HorizontalAlignment="Left" Height="35" Margin="326,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtStraatnaam" HorizontalAlignment="Left" Height="35" Margin="326,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtBus" HorizontalAlignment="Left" Height="35" Margin="326,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtGemeente" HorizontalAlignment="Left" Height="35" Margin="326,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <Label x:Name="lblTeleffonnummer" Content="Teleffonnummer" HorizontalAlignment="Left" Height="36" Margin="163,425,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <Label x:Name="lblGemeente" Content="Gemeente" HorizontalAlignment="Left" Height="36" Margin="163,383,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtPostcode" HorizontalAlignment="Left" Height="35" Margin="326,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <Label x:Name="lblEmailadres" Content="Email adres" HorizontalAlignment="Left" Height="36" Margin="163,468,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtTeleffonnummer" HorizontalAlignment="Left" Height="35" Margin="326,425,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <Label x:Name="lblOpmerking" Content="Opmerking" HorizontalAlignment="Left" Height="36" Margin="163,562,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtOpmerking" HorizontalAlignment="Left" Height="35" Margin="326,562,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtEmailAdres" HorizontalAlignment="Left" Height="35" Margin="326,468,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+
+    </Grid>
+</Window>

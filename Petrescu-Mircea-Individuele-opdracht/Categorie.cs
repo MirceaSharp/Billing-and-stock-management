@@ -17,13 +17,13 @@ namespace Petrescu_Mircea_Individuele_opdracht
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Categorie()
         {
-            this.Products = new HashSet<Product>();
+            this.Producten = new HashSet<Product>();
         }
     
         public int CategorieID { get; set; }
         public string CategorieNaam { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Product> Producten { get; set; }
     }
 }

@@ -17,8 +17,8 @@ namespace Petrescu_Mircea_Individuele_opdracht
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Leverancier()
         {
-            this.Bestellings = new HashSet<Bestelling>();
-            this.Products = new HashSet<Product>();
+            this.Bestellingen = new HashSet<Bestelling>();
+            this.Producten = new HashSet<Product>();
         }
     
         public int LeverancierID { get; set; }
@@ -32,8 +32,8 @@ namespace Petrescu_Mircea_Individuele_opdracht
         public string Gemeente { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bestelling> Bestellings { get; set; }
+        public virtual ICollection<Bestelling> Bestellingen { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Product> Producten { get; set; }
     }
 }

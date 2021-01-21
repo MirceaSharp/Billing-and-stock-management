@@ -1,0 +1,44 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Petrescu_Mircea_Individuele_opdracht"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Petrescu_Mircea_Individuele_opdracht.MaakProduct"
+        mc:Ignorable="d"
+        Title="MaakProduct" Height="610" Width="800" WindowStyle="None" ResizeMode="NoResize">
+    <Grid Margin="0,2,0,0">
+
+        <Grid x:Name="TitleBar" MouseDown="TitleBar_MouseDown" HorizontalAlignment="Left" Height="21" Margin="93,0,0,0" VerticalAlignment="Top" Width="706" Background="#FF267A7A">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="427*"/>
+                <ColumnDefinition Width="279*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="" x:Name="btnClose" Click="btnClose_Click" HorizontalAlignment="Left" Height="21" Margin="239,0,0,0" VerticalAlignment="Top" Width="40" Background="White" Grid.Column="1"/>
+            <materialDesign:PackIcon Kind="Power" Margin="253,2,0,0" RenderTransformOrigin="11.562,0.854" Width="12" Grid.Column="1"/>
+            <Button x:Name="btnMinimize" Click="btnMinimize_Click" HorizontalAlignment="Left" Height="21" Margin="193,0,0,0" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-0.179,1.591" Background="White" Grid.Column="1">
+                <materialDesign:PackIcon  Kind="WindowMinimize"  BorderBrush="Black" Background="{x:Null}" RenderTransformOrigin="0.188,0.797"/>
+            </Button>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="605" VerticalAlignment="Top" Width="94" Background="#FFB3AEBB" Margin="0,0,0,-28"  >
+            <Button Content="Toevoegen&#xA;" x:Name="btnToevoegen" Click="btnToevoegen_Click" HorizontalAlignment="Left" Height="28" Margin="0,87,0,0" VerticalAlignment="Top" Width="94" FontSize="11" />
+        </Grid>
+        <TextBox x:Name="txtProductID" HorizontalAlignment="Left" Height="35" Margin="326,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <Label x:Name="lblProductID" Content="Product ID" HorizontalAlignment="Left" Height="36" Margin="163,79,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtNaam" HorizontalAlignment="Left" Height="35" Margin="326,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <Label x:Name="lblNaam" Content="Naam" HorizontalAlignment="Left" Height="36" Margin="163,136,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtInkoopprijs" HorizontalAlignment="Left" Height="35" Margin="326,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <Label x:Name="lblInkoopprijs" Content="Inkoopprijs" HorizontalAlignment="Left" Height="36" Margin="163,200,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <Label x:Name="lblMarge" Content="Marge" HorizontalAlignment="Left" Height="36" Margin="163,258,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtMarge" HorizontalAlignment="Left" Height="35" Margin="326,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <Label x:Name="lblEenheid" Content="Eenheid" HorizontalAlignment="Left" Height="36" Margin="163,309,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtEenheid" HorizontalAlignment="Left" Height="35" Margin="326,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <Label x:Name="lblBTW" Content="BTW" HorizontalAlignment="Left" Height="36" Margin="163,365,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtBTW" HorizontalAlignment="Left" Height="35" Margin="326,366,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <Label x:Name="lblLeverancierID" Content="Leverancier ID&#x9;" HorizontalAlignment="Left" Height="36" Margin="163,412,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtLeverancierID" HorizontalAlignment="Left" Height="35" Margin="326,413,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+        <Label x:Name="lblCategorieID" Content="Categorie ID" HorizontalAlignment="Left" Height="36" Margin="163,466,0,0" VerticalAlignment="Top" Width="138" Background="#FFBEE8BF"/>
+        <TextBox x:Name="txtCategorieID" HorizontalAlignment="Left" Height="35" Margin="326,468,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Background="#FFBEE8BF"/>
+
+    </Grid>
+</Window>

@@ -7,26 +7,26 @@
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         
         mc:Ignorable="d"
-        Title="Login" Height="450" Width="310" WindowStyle="None" >
+        Title="Login" Height="450" Width="310" WindowStyle="None" ResizeMode="NoResize">
 
 
 
-    <Grid Name="Top" MouseDown="Top_MouseDown" HorizontalAlignment="Left" Height="229" VerticalAlignment="Top" Width="300" Background="#FF1A7C6A">
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="200" Margin="36,105,0,-76" Stroke="Black" VerticalAlignment="Top" Width="230">
+    <Grid Name="Top" MouseDown="Top_MouseDown" HorizontalAlignment="Left" Height="229" VerticalAlignment="Top" Width="309" Background="#FF1A7C6A" Margin="1,0,0,0">
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="200" Margin="40,105,0,-76" Stroke="Black" VerticalAlignment="Top" Width="230">
 
         </Rectangle>
         <Grid HorizontalAlignment="Left" Height="200" Margin="36,105,0,-76" VerticalAlignment="Top" Width="230"/>
         <TextBlock HorizontalAlignment="Left" Height="19" Margin="110,130,0,0" TextWrapping="Wrap" Text="        Login" VerticalAlignment="Top" Width="89"/>
         <StackPanel HorizontalAlignment="Left" Height="117" Margin="74,188,0,-76" VerticalAlignment="Top" Width="160">
             <TextBox x:Name="txtUser" materialDesign:HintAssist.Hint="Username" Margin="0,10"  />
-            <TextBox x:Name="txtPassword" materialDesign:HintAssist.Hint="Password"  Margin="0,10" />
+            <PasswordBox x:Name="txtPassword" PasswordChar="*"  materialDesign:HintAssist.Hint="Password"  Margin="0,10" />
         </StackPanel>
         <materialDesign:PackIcon Kind="User" Height="57" Width="70" Margin="119,36,0,0"/>
-        <Button Name="btnLogin" Click="btnLogin_Click" Content="Login" HorizontalAlignment="Left" Margin="96,292,0,-95" VerticalAlignment="Top" Width="117"/>
-        <Button Content="Button" Name="btnMinmize" Click="btnMinmize_Click" HorizontalAlignment="Left" Height="11" Margin="252,0,0,0" VerticalAlignment="Top" Width="25" Background="White"/>
-        <materialDesign:PackIcon Kind="WindowMinimize" Margin="256,-3,0,0"/>
-        <Button Content="Button" Name="btnClose" Click="btnClose_Click" HorizontalAlignment="Left" Height="11" Margin="277,0,0,0" VerticalAlignment="Top" Width="23" Background="White" Grid.ColumnSpan="2"/>
-        <materialDesign:PackIcon Kind="Power" Margin="280,-1,0,0" Height="12" Grid.ColumnSpan="2"/>
+        <Button IsDefault="True" Name="btnLogin" Click="btnLogin_Click" Content="Login" HorizontalAlignment="Left" Margin="96,292,0,-95" VerticalAlignment="Top" Width="117"/>
+        <Button Content="Button" Name="btnMinmize" Click="btnMinmize_Click" HorizontalAlignment="Left" Height="12" Margin="240,0,0,0" VerticalAlignment="Top" Width="32" Background="White"/>
+        <materialDesign:PackIcon Kind="WindowMinimize" Margin="250,1,0,0" Height="12" Width="14"/>
+        <Button Content="Button" Name="btnClose" Click="btnClose_Click" HorizontalAlignment="Left" Height="12" Margin="271,0,0,0" VerticalAlignment="Top" Width="29" Background="White" Grid.ColumnSpan="2"/>
+        <materialDesign:PackIcon Kind="Power" Margin="279,2,0,0" Height="9" Grid.ColumnSpan="2" Width="14" HorizontalAlignment="Left"/>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="41*"/>

@@ -8,49 +8,66 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Petrescu_Mircea_Individuele_opdracht.Overview"
       
         mc:Ignorable="d"
-        Title="Overview" Height="450" Width="800" WindowStyle="None" ResizeMode="NoResize">
+        Title="Overview" Height="449" Width="1311" WindowStyle="None" ResizeMode="NoResize">
     <Window.Resources>
         <Color x:Key="Color1">Black</Color>
     </Window.Resources>
 
     <Grid Grid.Row="1">
-        <Grid Name="TitleBar" MouseDown="TitleBar_MouseDown" HorizontalAlignment="Left" Height="21" Margin="94,0,0,0" VerticalAlignment="Top" Width="706" Background="#FF267A7A">
-            <Button Content="" Name="btnClose" Click="btnClose_Click_1" HorizontalAlignment="Left" Height="19" Margin="666,2,0,0" VerticalAlignment="Top" Width="40" Background="White"/>
-            <materialDesign:PackIcon Kind="Power" Margin="680,2,0,0" RenderTransformOrigin="11.562,0.854" Width="12"/>
+        <Grid Name="TitleBar" MouseDown="TitleBar_MouseDown" HorizontalAlignment="Left" Height="21" Margin="94,0,0,0" VerticalAlignment="Top" Width="1217" Background="#FF267A7A">
+            <Button Content="" Name="btnClose" Click="btnClose_Click_1" HorizontalAlignment="Left" Height="21" Margin="1175,0,0,0" VerticalAlignment="Top" Width="40" Background="White"/>
+            <materialDesign:PackIcon Kind="Power" Margin="1187,4,0,0" RenderTransformOrigin="11.562,0.854" Width="12"/>
+            <Button Name="btnLoguit" Click="btnLoguit_Click" Content="Log uit" HorizontalAlignment="Left" Height="21" Margin="1018,-1,0,0" VerticalAlignment="Top" Width="111" FontSize="10"/>
+            <Label Name="lblWelkom" Content="" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="165" Background="#FFB24444" FontSize="10"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="94" Background="#FFB3AEBB"  >
-            <Button Name="btnOverzicht" HorizontalAlignment="Left" Height="26" Margin="0,34,0,0" VerticalAlignment="Top" Width="94" Content="Ovezicht" FontSize="11" Click="btnOverzicht_Click"/>
-            <Button Name="btnBestelling" Content="Bestelling" HorizontalAlignment="Left" Height="24" Margin="0,110,0,0" VerticalAlignment="Top" Width="94" FontSize="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="67*"/>
+                <ColumnDefinition Width="27*"/>
+            </Grid.ColumnDefinitions>
+            <Label Name="lblOverzicht" HorizontalAlignment="Left" Height="26" Margin="0,21,0,0" VerticalAlignment="Top" Width="94" FontSize="11"  Grid.ColumnSpan="2" Background="#FF4CAF50" Content="     Overzicht"/>
+            <materialDesign:PackIcon Kind="Home" Margin="2,24,0,0" />
+            <Button Name="btnBestellingen" Click="btnBestellingen_Click" Content="Bestellingen" HorizontalAlignment="Left" Height="24" Margin="0,47,0,0" VerticalAlignment="Top" Width="94" FontSize="10" Grid.ColumnSpan="2">
 
             </Button>
-            <Button x:Name="btnKlanten" Content="Klanten" HorizontalAlignment="Left" Height="24" Margin="0,152,0,0" VerticalAlignment="Top" Width="94" FontSize="10"/>
-            <Button x:Name="btnKlanten_Copy" Content="Producten" HorizontalAlignment="Left" Height="24" Margin="0,193,0,0" VerticalAlignment="Top" Width="94" FontSize="10"/>
+            <Button x:Name="btnKlanten" Content="Klanten" Click="btnKlanten_Click" HorizontalAlignment="Left" Height="24" Margin="0,71,0,0" VerticalAlignment="Top" Width="94" FontSize="10" Grid.ColumnSpan="2"/>
+            <Button x:Name="btnProducten" Content="Producten" Click="btnProducten_Click" HorizontalAlignment="Left" Height="24" Margin="0,95,0,0" VerticalAlignment="Top" Width="94" FontSize="10" Grid.ColumnSpan="2"/>
+            <Button x:Name="btnLeveranciers" Content="Leveranciers" Click="btnLeveranciers_Click" HorizontalAlignment="Left" Height="24" Margin="-1,119,0,0" VerticalAlignment="Top" Width="94" FontSize="10" Grid.ColumnSpan="2"/>
         </Grid>
         <Grid Margin="0,37,706,392" >
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="250">
 
                 </RowDefinition>
             </Grid.RowDefinitions>
-            <materialDesign:PackIcon Kind="Home" RenderTransformOrigin="-0.292,0.479" />
 
         </Grid>
-        <Button Name="btnDatabeheer" HorizontalAlignment="Left" Height="24" Margin="0,71,0,0" VerticalAlignment="Top" Width="94" Content="   Databeheer" FontSize="10" Click="btnDatabeheer_Click"  />
+        <Button Name="btnDatabeheer" HorizontalAlignment="Left" Height="24" Margin="0,162,0,0" VerticalAlignment="Top" Width="94" Content="   Databeheer" FontSize="10" Click="btnDatabeheer_Click"  />
         <Grid HorizontalAlignment="Right" Height="24" Margin="0,71,706,0" VerticalAlignment="Top" Width="94">
-            <materialDesign:PackIcon Kind="Database" Margin="0,4,0,0" Name="icondatabase"/>
+            <materialDesign:PackIcon Kind="Database" Margin="2,94,0,-86" Name="icondatabase" RenderTransformOrigin="0.5,1.375"/>
         </Grid>
-        <Button x:Name="btnMinimize" Click="btnMinimize_Click" HorizontalAlignment="Left" Height="22" Margin="714,-1,0,0" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-0.179,1.591">
+        <Button x:Name="btnMinimize" Click="btnMinimize_Click" HorizontalAlignment="Left" Height="21" Margin="1225,0,0,0" VerticalAlignment="Top" Width="43" RenderTransformOrigin="-0.179,1.591">
             <Button.Background>
                 <SolidColorBrush Color="White"/>
             </Button.Background>
             <materialDesign:PackIcon  Kind="WindowMinimize"  BorderBrush="Black" Background="{x:Null}" RenderTransformOrigin="0.188,0.797"/>
         </Button>
         <Grid HorizontalAlignment="Left" Height="22" Margin="438,30,0,0" VerticalAlignment="Top" Width="42"/>
-        <Grid HorizontalAlignment="Left" Height="20" Margin="4,114,0,0" VerticalAlignment="Top" Width="74">
-            <materialDesign:PackIcon Kind="Check" Name="iconbestelling"/>
-        </Grid>
-        <materialDesign:PackIcon Kind="Briefcase" Height="18" Width="27" Margin="1,157,0,0"/>
-        <materialDesign:PackIcon Kind="" Height="18" Width="27" Margin="0,195,0,0"/>
+        <Grid HorizontalAlignment="Left" Height="20" Margin="4,100,0,0" VerticalAlignment="Top" Width="74"/>
+        <DataGrid Name="dgShow" HorizontalAlignment="Left" Height="425" Margin="94,22,0,0" VerticalAlignment="Top" Width="1216" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.214"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+
+        </DataGrid>
+        <Button x:Name="btnBestelling" Click="btnBestelling_Click" HorizontalAlignment="Left" Height="24" Margin="0,226,0,0" VerticalAlignment="Top" Width="94" Content="Bestelling" FontSize="10"   />
+        <materialDesign:PackIcon Kind="Check" Margin="4,230,0,0"/>
 
 
 

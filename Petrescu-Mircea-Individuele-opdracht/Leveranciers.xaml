@@ -1,0 +1,29 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Petrescu_Mircea_Individuele_opdracht"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Petrescu_Mircea_Individuele_opdracht.Leveranciers"
+        mc:Ignorable="d"
+        Title="Leveranciers" Height="450" Width="800" WindowStyle="None" ResizeMode="NoResize" >
+    <Grid>
+        <Grid x:Name="TitleBar" MouseDown="TitleBar_MouseDown" HorizontalAlignment="Left" Height="21" Margin="94,0,0,0" VerticalAlignment="Top" Width="706" Background="#FF267A7A"/>
+        <Grid HorizontalAlignment="Left" Height="448" VerticalAlignment="Top" Width="94" Background="#FFB3AEBB"  Margin="-1,2,0,0"  >
+            <Button Content="Toon alles" x:Name="btnToonAlles" Click="btnToonAlles_Click" HorizontalAlignment="Left" Height="28" Margin="0,34,0,0" VerticalAlignment="Top" Width="94"/>
+            <Button Content="Toevoegen" x:Name="btnToevoegen" HorizontalAlignment="Left" Height="28" Margin="0,82,0,0" VerticalAlignment="Top" Width="94" FontSize="11"/>
+            <Button Content="Update" x:Name="btnUpdate" HorizontalAlignment="Left" Height="28" Margin="0,180,0,0" VerticalAlignment="Top" Width="94" Click="btnUpdate_Click"/>
+            <Button Content="Verwijderen" x:Name="btnVerwijderen" HorizontalAlignment="Left" Height="28" Margin="0,132,0,0" VerticalAlignment="Top" Width="94" Click="btnVerwijderen_Click" FontSize="11"/>
+            <Button x:Name="btnToonID" Content="Toon ID:" Click="btnToonID_Click" HorizontalAlignment="Left" Height="28" Margin="0,242,0,0" VerticalAlignment="Top" Width="94" />
+            <TextBox Name="txtLevID" HorizontalAlignment="Left" Height="28" Margin="0,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="94" Background="#FF4CAF50" TextChanged="txtLevID_TextChanged" />
+        </Grid>
+        <DataGrid x:Name="dgShowSuppliers" HorizontalAlignment="Left" Height="429" Margin="94,21,0,0" VerticalAlignment="Top" Width="706"/>
+        <Button x:Name="btnClose" Click="btnClose_Click" HorizontalAlignment="Left" Height="21" Margin="760,0,0,0" VerticalAlignment="Top" Width="40" Background="White">
+            <materialDesign:PackIcon Kind="Power" RenderTransformOrigin="11.562,0.854" Width="10"/>
+        </Button>
+        <Button x:Name="btnMinimize" Click="btnMinimize_Click" HorizontalAlignment="Left" Height="21" Margin="714,0,0,0" VerticalAlignment="Top" Width="46" RenderTransformOrigin="-0.179,1.591" Background="White">
+            <materialDesign:PackIcon  Kind="WindowMinimize"  BorderBrush="Black" Background="{x:Null}" RenderTransformOrigin="0.188,0.797"/>
+        </Button>
+
+    </Grid>
+</Window>

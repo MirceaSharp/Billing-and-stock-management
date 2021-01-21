@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Windows;
 
 namespace Petrescu_Mircea_Individuele_opdracht
 {
@@ -14,10 +17,8 @@ namespace Petrescu_Mircea_Individuele_opdracht
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            Overview overview = new Overview();
 
-
-            if ((string.IsNullOrWhiteSpace(txtUser.Text) || ((string.IsNullOrWhiteSpace(txtPassword.Text)))))
+            if ((string.IsNullOrWhiteSpace(txtUser.Text) || ((string.IsNullOrWhiteSpace(txtPassword.Password)))))
             {
                 MessageBox.Show("You must fill in both username and password fields");
 
@@ -25,43 +26,85 @@ namespace Petrescu_Mircea_Individuele_opdracht
             }
             else
             {
-                if ((txtUser.Text == "admin") & (txtPassword.Text == "Greece2020"))
+
+                SqlConnection sqlCon = new SqlConnection(@"Data Source=localhost; Initial Catalog=FinalDB; Integrated Security = true");
+
+                try
                 {
+                    if (sqlCon.State == ConnectionState.Closed)
+                        sqlCon.Open();
+                    string query = "SELECT COUNT (1) FROM Personeelslid WHERE Voornaam=@Voornaam AND Password=@Password;";
+                    SqlCommand sqlcom = new SqlCommand(query, sqlCon);
+                    sqlcom.CommandType = CommandType.Text;
+                    sqlcom.Parameters.AddWithValue("@Voornaam", txtUser.Text);
+                    sqlcom.Parameters.AddWithValue("@Password", txtPassword.Password);
 
-                    overview.Show();
-                    overview.btnKlanten.Visibility = Visibility.Hidden;
-                    overview
 
 
 
-                    Close();
+
+                    int count = Convert.ToInt32(sqlcom.ExecuteScalar());
+                    if (count == 1)
+                    {
+                        if (txtUser.Text == "Joost")
+                        {
+                            Overview overview = new Overview();
+                            overview.lblWelkom.Content = "Welcome Joost!";
+                            overview.Show();
+                            this.Close();
+                        }
+                        else if (txtUser.Text == "Bart")
+                        {
+                            Overview overview = new Overview();
+                            overview.Show();
+                            overview.lblWelkom.Content = "Welcome Bart!";
+
+                            overview.btnDatabeheer.Visibility = Visibility.Hidden;
+                            overview.icondatabase.Visibility = Visibility.Hidden;
+
+                            this.Close();
+                        }
+                        else if (txtUser.Text == "Guido")
+                        {
+
+                            Overview overview = new Overview();
+                            overview.Show();
+                            overview.lblWelkom.Content = "Welcome Guido!";
+
+                            overview.btnLeveranciers.Visibility = Visibility.Hidden;
+                            overview.btnDatabeheer.Visibility = Visibility.Hidden;
+                            overview.icondatabase.Visibility = Visibility.Hidden;
+
+                            this.Close();
+                        }
+                        else
+                        {
+                            Overview overview = new Overview();
+                            overview.Show();
+                            overview.lblWelkom.Content = "Welcome Alice!";
+                            overview.btnLeveranciers.Visibility = Visibility.Hidden;
+                            overview.btnDatabeheer.Visibility = Visibility.Hidden;
+                            overview.icondatabase.Visibility = Visibility.Hidden;
+
+
+                            this.Close();
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect username or wrong password");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
 
                 }
-                else if ((txtUser.Text == "magazijner") & (txtPassword.Text == "magazijner1999"))
+                finally
                 {
-
-                    overview.btnDatabeheer.Visibility = Visibility.Hidden;
-                    overview.icondatabase.Visibility = Visibility.Hidden;
-                    overview.Show();
-                    Close();
+                    sqlCon.Close();
                 }
-                else if ((txtUser.Text == "verkoper") & (txtPassword.Text == "SalesAccount123"))
-                {
-                    overview.btnDatabeheer.Visibility = Visibility.Hidden;
-                    overview.icondatabase.Visibility = Visibility.Hidden;
-
-                    overview.Show();
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect username or wrong password");
-
-
-                }
-
-
-
             }
         }
 

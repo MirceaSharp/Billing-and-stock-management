@@ -17,7 +17,7 @@ namespace Petrescu_Mircea_Individuele_opdracht
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.BestellingProducts = new HashSet<BestellingProduct>();
+            this.BestellingProducten = new HashSet<BestellingProduct>();
         }
     
         public int ProductID { get; set; }
@@ -30,7 +30,7 @@ namespace Petrescu_Mircea_Individuele_opdracht
         public Nullable<int> CategorieID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BestellingProduct> BestellingProducts { get; set; }
+        public virtual ICollection<BestellingProduct> BestellingProducten { get; set; }
         public virtual Categorie Categorie { get; set; }
         public virtual Leverancier Leverancier { get; set; }
     }

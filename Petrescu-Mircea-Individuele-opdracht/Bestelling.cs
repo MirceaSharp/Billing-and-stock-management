@@ -17,18 +17,19 @@ namespace Petrescu_Mircea_Individuele_opdracht
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Bestelling()
         {
-            this.BestellingProducts = new HashSet<BestellingProduct>();
+            this.BestellingProducten = new HashSet<BestellingProduct>();
         }
     
         public int BestellingID { get; set; }
         public Nullable<System.DateTime> DatumOpgemaakt { get; set; }
-        public string PersoneelslidID { get; set; }
         public Nullable<int> LeverancierID { get; set; }
+        public Nullable<int> PersoneelslidID { get; set; }
         public Nullable<int> KlantID { get; set; }
     
         public virtual Klant Klant { get; set; }
         public virtual Leverancier Leverancier { get; set; }
+        public virtual Personeelslid Personeelslid { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BestellingProduct> BestellingProducts { get; set; }
+        public virtual ICollection<BestellingProduct> BestellingProducten { get; set; }
     }
 }

@@ -14,7 +14,17 @@ namespace Petrescu_Mircea_Individuele_opdracht
     
     public partial class Personeelslid
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Personeelslid()
+        {
+            this.Bestellingen = new HashSet<Bestelling>();
+        }
+    
         public int PersoneelslidID { get; set; }
         public string Voornaam { get; set; }
+        public string Password { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bestelling> Bestellingen { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace Petrescu_Mircea_Individuele_opdracht
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Klant()
         {
-            this.Bestellings = new HashSet<Bestelling>();
+            this.Bestellingen = new HashSet<Bestelling>();
         }
     
         public int KlantID { get; set; }
@@ -34,6 +34,6 @@ namespace Petrescu_Mircea_Individuele_opdracht
         public string Opmerking { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bestelling> Bestellings { get; set; }
+        public virtual ICollection<Bestelling> Bestellingen { get; set; }
     }
 }
